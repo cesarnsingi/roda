@@ -1,0 +1,4 @@
+'use client';
+import{useEffect,type ReactNode}from'react';import{X}from'lucide-react';
+export function Modal({open,onClose,title,children}:{open:boolean;onClose:()=>void;title:string;children:ReactNode}){useEffect(()=>{if(!open)return;const f=(e:KeyboardEvent)=>e.key==='Escape'&&onClose();addEventListener('keydown',f);return()=>removeEventListener('keydown',f)},[open,onClose]);if(!open)return null;
+return<div className="fixed inset-0 z-[90] grid place-items-center bg-black/60 p-4" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}><div className="w-full max-w-md rounded-3xl bg-white p-7 text-ink" onClick={e=>e.stopPropagation()}><div className="mb-3 flex items-center justify-between"><h2 className="text-2xl font-black">{title}</h2><button onClick={onClose} aria-label="Close"><X/></button></div>{children}</div></div>}

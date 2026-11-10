@@ -1,0 +1,3 @@
+import type{Metadata}from'next';import{GeistSans}from'geist/font/sans';import'./globals.css';import{LangProvider}from'@/components/Lang';
+export const metadata:Metadata={title:'Roda – Car services that come to you',description:'Fuel delivery, car wash, battery, tyres, engine oil and roadside rescue, brought to wherever you are. Fictional demo brand.'};
+export default function Root({children}:{children:React.ReactNode}){return<html lang="en" className={GeistSans.variable} suppressHydrationWarning><body suppressHydrationWarning className="bg-white font-sans text-ink antialiased"><LangProvider>{children}</LangProvider></body></html>}
